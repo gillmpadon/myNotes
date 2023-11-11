@@ -2,6 +2,8 @@
 // https://medium.com/@simpleandshort/how-to-use-nativewind-tailwindcss-in-your-react-native-application-67874f41e13f
 
 Step 1:
+
+```
     yarn create expo-app <appname>
     cd <appname>
     yarn expo start
@@ -34,9 +36,11 @@ Step 1:
 
     yarn add --dev tailwindcss@3.3.2
 
+```
     
 # Adding React native svg
 
+```
 Step 1: 
     yarn add react-native-svg
     yarn add --dev react-native-svg-transformer
@@ -90,16 +94,38 @@ Step 3:
         <Icon  name='facebook' size={32} color="red" />
     </View>
 
+```
 
 
 
-
-
-# Possible Errors
-    1. If encounter is cancelled depreciated use canceled instead 
-     if (!result.canceled) {
-      setImage(result.assets[0].uri)
-      setShowSticker(true)
-    }else{
-      alert("You need to select an image")
+# How to Export React Native App to APK
+```
+Step 1:
+    // (If new environment)
+    expo login
+    expo whoami
+    
+Step 2:
+    // add this to eas.json file
+      "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "production": {}
     }
+
+Step 3: 
+    // run this command
+    eas build -p android --profile preview
+
+```
